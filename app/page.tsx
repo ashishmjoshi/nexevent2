@@ -44,7 +44,12 @@ export default async function Home() {
         .limit(10);
 
       if (error) {
-        console.error("Supabase error:", error);
+        console.error("Supabase Error:", {
+          message: error.message,
+          details: error.details,
+          hint: error.hint,
+          code: error.code
+        });
         fetchError = true;
       } else {
         events = data || [];
